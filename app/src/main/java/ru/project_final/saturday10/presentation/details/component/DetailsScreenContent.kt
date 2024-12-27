@@ -2,6 +2,7 @@ package ru.project_final.saturday10.presentation.details.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
@@ -28,7 +29,9 @@ fun DetailsScreenContent(
 ) {
   Column {
     Text("Name: ${userModel.login}", fontSize = 30.sp, fontFamily = FontFamily.Cursive)
+    Spacer(modifier = Modifier.padding(10.dp))
     Text("Photo:", fontSize = 24.sp, fontFamily = FontFamily.Cursive)
+    Spacer(modifier = Modifier.padding(10.dp))
     GlideImage(
       model = userModel.imageUrl,
       contentDescription = null,
@@ -36,12 +39,13 @@ fun DetailsScreenContent(
         .height(200.dp)
         .width(200.dp)
     )
+    Spacer(modifier = Modifier.padding(10.dp))
     Text(
-      "Описание: привет , мне ${userModel.age} лет, мне нравятся такие люди как меган фокс и путин , если ты меган фокс напиши мне !!",
+      "Description: hi, I am ${userModel.age} years old and I love Megan Fox and my mom",
       fontSize = 20.sp,
       fontFamily = FontFamily.Cursive
     )
-
+    Spacer(modifier = Modifier.padding(15.dp))
     Row(
       modifier = Modifier.fillMaxWidth(),
       verticalAlignment = Alignment.CenterVertically,
@@ -54,7 +58,7 @@ fun DetailsScreenContent(
       }
       Button(
         modifier = Modifier.padding(start = 14.dp)
-          .offset(x=30.dp),
+          .offset(x=100.dp),
         onClick = {}
       ) {
         Text("Dislike")

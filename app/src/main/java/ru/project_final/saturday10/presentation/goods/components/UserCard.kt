@@ -4,8 +4,10 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Button
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,18 +28,17 @@ fun UserCard(
   onEvent: (UserEvent) -> Unit,
 ) {
   ElevatedCard(
-    modifier = Modifier.fillMaxWidth(),
-    onClick = {
-      onEvent(UserEvent.OnUserItemClick(userModel))
-    }
+    modifier = Modifier
+      .height(420.dp)
+      .width(300.dp)
   ) {
 
     GlideImage(
       model = userModel.imageUrl,
       contentDescription = null,
       modifier = Modifier
-        .height(100.dp)
-        .width(100.dp)
+        .height(300.dp)
+        .width(300.dp)
     )
     Row(
       modifier = Modifier.fillMaxWidth(),
@@ -56,6 +57,14 @@ fun UserCard(
       verticalAlignment = Alignment.CenterVertically,
     ) {
 
+      Button(
+        modifier = Modifier.padding(start = 14.dp),
+        onClick = {
+          onEvent(UserEvent.OnUserItemClick(userModel))
+        }
+      ) {
+        Text("More info")
+      }
     }
     Spacer(modifier = Modifier.padding(6.dp))
   }
