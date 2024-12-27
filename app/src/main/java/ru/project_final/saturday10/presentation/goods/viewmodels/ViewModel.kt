@@ -12,6 +12,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.project_final.saturday10.App
 import ru.project_final.saturday10.data.api.ApiExample
+import ru.project_final.saturday10.data.db.User
 import ru.project_final.saturday10.data.models.UserModel
 import ru.project_final.saturday10.presentation.goods.contract.UserEffect
 import ru.project_final.saturday10.presentation.goods.contract.UserEvent
@@ -75,8 +76,17 @@ class ViewModel : ViewModel() {
                 },
                 userName = ""
               )
+
+              dao.insertAll( users.map {
+                User(
+                  it.id,
+                  it.login,
+                )
+              })
             }
           } catch (e: Exception) {
+            App.getDatabase()?.userDao()?.let { dao ->
+              val users = client.getUsers()}
             e.printStackTrace()
           }
         }

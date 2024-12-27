@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-  namespace = "ru.project_final.finalproject"
+  namespace = "ru.project_final.saturday10"
   compileSdk = 34
 
   defaultConfig {
-    applicationId = "ru.project_final.finalproject"
+    applicationId = "ru.project_final.saturday10"
     minSdk = 24
     targetSdk = 34
     versionCode = 1

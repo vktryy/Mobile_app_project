@@ -3,7 +3,9 @@ package ru.project_final.saturday10.presentation.goods.components
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -33,6 +35,9 @@ fun UserCard(
     GlideImage(
       model = userModel.imageUrl,
       contentDescription = null,
+      modifier = Modifier
+        .height(100.dp)
+        .width(100.dp)
     )
     Row(
       modifier = Modifier.fillMaxWidth(),
@@ -50,13 +55,7 @@ fun UserCard(
       modifier = Modifier.fillMaxWidth(),
       verticalAlignment = Alignment.CenterVertically,
     ) {
-      Text(
-        modifier = Modifier
-          .padding(16.dp)
-          .fillMaxWidth(),
-        text = userModel.id,
-        fontSize = 24.sp
-      )
+
     }
     Spacer(modifier = Modifier.padding(6.dp))
   }
