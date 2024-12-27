@@ -59,4 +59,5 @@ fun UserCard(
     }
     Spacer(modifier = Modifier.padding(6.dp))
   }
+  Spacer(modifier = Modifier.padding(10.dp))
 }
